@@ -5,20 +5,28 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner ab = new Scanner(System.in);
-        {
-            int n1=1,n2=1,n3,i,count=4;
-            System.out.print(n1+" "+n2);//printing 0 and 1
+        Scanner ab= new Scanner (System.in);
 
-            for(i=2;i<count;++i)//loop starts from 2 because 0 and 1 are already printed
-            {
-                n3=n1+n2;
-                System.out.print(" "+n3);
-                n1=n2;
-                n2=n3;
+
+                System.out.println("Enter number upto which Fibonacci series to print: ");
+                int number = new Scanner(System.in).nextInt();
+                System.out.println("\n Fibonacci number at location " + number + " is ==> " + (fibonacciLoop(number) + ""));
             }
 
-        }}
-    // write your code here
-    }
+            public static int fibonacciLoop(int number) {
+                if (number == 1 || number == 2) {
+                    return 1;
+                }
+
+                int fibo1 = 1, fibo2 = 1, fibonacci = 1;
+                for (int i = 3; i <= number; i++) {
+                    fibonacci = fibo1 + fibo2; // Fibonacci number is sum of previous two Fibonacci number
+                    fibo1 = fibo2;
+                    fibo2 = fibonacci;
+                }
+                return fibonacci; // Fibonacci number
+            }
+        }
+	// write your code here
+
 
